@@ -1,2 +1,2 @@
-# language_knock
+# nlp_knock
 - http://www.cl.ecei.tohoku.ac.jp/nlp100/#
