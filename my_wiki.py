@@ -1,6 +1,3 @@
-from subprocess import Popen, PIPE
-
-
 def generateBasicInfo(target):
     output = {}
     flag = 0
