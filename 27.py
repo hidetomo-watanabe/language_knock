@@ -17,8 +17,8 @@ if __name__ == '__main__':
             tmp_conv = tmp.replace('\'', '')
             tmp_value = value.replace(tmp, tmp_conv)
 
-        match_obj = re.search(r'\[\[.*\]\]', tmp_value)
-        if match_obj:
+        match_obj = re.search(r'\[\[[^\[\]]*\]\]', tmp_value)
+        while match_obj:
             tmp = tmp_value[match_obj.start():match_obj.end()]
             tmp_conv = tmp.replace('[[', '').replace(']]', '')
             if '|' in tmp_conv:
@@ -26,7 +26,7 @@ if __name__ == '__main__':
                 if '#' in tmp_conv:
                     tmp_conv = tmp_conv.split('#')[0]
             tmp_value = tmp_value.replace(tmp, tmp_conv)
+            match_obj = re.search(r'\[\[[^\[\]]*\]\]', tmp_value)
         output[key] = tmp_value
-    print(output)
-    for tmp in output.items():
-        print(tmp)
+    for key, value in output.items():
+        print('%s: %s' % (key, value))
