@@ -9,13 +9,13 @@ if __name__ == '__main__':
     tmp_json = my_wiki.generateBasicInfo(england_text)
     output = {}
     for key, value in tmp_json.items():
-        match_obj = re.search(r'\'+.*\'+', value)
-        if not match_obj:
-            tmp_value = value
-        else:
-            tmp = value[match_obj.start():match_obj.end()]
+        tmp_value = value
+        match_obj = re.search(r'\'+[^\']*\'+', tmp_value)
+        while match_obj:
+            tmp = tmp_value[match_obj.start():match_obj.end()]
             tmp_conv = tmp.replace('\'', '')
-            tmp_value = value.replace(tmp, tmp_conv)
+            tmp_value = tmp_value.replace(tmp, tmp_conv)
+            match_obj = re.search(r'\'+[^\']*\'+', tmp_value)
 
         match_obj = re.search(r'\[\[[^\[\]]*\]\]', tmp_value)
         while match_obj:
