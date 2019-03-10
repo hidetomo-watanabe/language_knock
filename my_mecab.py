@@ -1,7 +1,7 @@
 import MeCab
 
 
-def generateMecab(target):
+def generate_mecab(target):
     f = open(target)
     target = f.read()
     f.close()
@@ -10,7 +10,7 @@ def generateMecab(target):
     return output
 
 
-def generateMapping(target):
+def generate_mapping(target):
     f = open(target)
     target = f.readlines()
     f.close()
@@ -38,7 +38,7 @@ def generateMapping(target):
 
 
 if __name__ == '__main__':
-    output = generateMecab('neko.txt')
+    output = generate_mecab('neko.txt')
     f = open('neko.txt.mecab', 'w')
     f.write(output)
     f.close()

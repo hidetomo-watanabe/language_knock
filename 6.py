@@ -2,8 +2,8 @@ import my_ngram
 if __name__ == '__main__':
     target1 = 'paraparaparadise'
     target2 = 'paragraph'
-    X = my_ngram.generateNGram(target1, 2, 'char')
-    Y = my_ngram.generateNGram(target2, 2, 'char')
+    X = my_ngram.generate_ngram(target1, 2, 'char')
+    Y = my_ngram.generate_ngram(target2, 2, 'char')
     output_or = list(set(X + Y))
     output_and = []
     for x in X:

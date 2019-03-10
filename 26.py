@@ -5,7 +5,7 @@ if __name__ == '__main__':
     p = Popen(cmd.strip().split(' '), stdout=PIPE, stderr=PIPE)
     out, err = p.communicate()
     england_text = out.decode('utf-8')
-    tmp_json = my_wiki.generateBasicInfo(england_text)
+    tmp_json = my_wiki.generate_basic_info(england_text)
     output = {}
     for key, value in tmp_json.items():
         output[key] = value.replace('\'', '')

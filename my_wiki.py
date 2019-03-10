@@ -1,4 +1,4 @@
-def generateBasicInfo(target):
+def generate_basic_info(target):
     output = {}
     flag = 0
     for line in target.split('\n'):

@@ -7,7 +7,7 @@ if __name__ == '__main__':
     p = Popen(cmd.strip().split(' '), stdout=PIPE, stderr=PIPE)
     out, err = p.communicate()
     england_text = out.decode('utf-8')
-    filename = my_wiki.generateBasicInfo(england_text)['国旗画像']
+    filename = my_wiki.generate_basic_info(england_text)['国旗画像']
     api_url = 'https://en.wikipedia.org/w/api.php' + \
         '?format=json&action=query&prop=imageinfo&iiprop=url&titles=File:' + \
         filename.replace(' ', '%20')

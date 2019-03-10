@@ -5,4 +5,4 @@ if __name__ == '__main__':
     p = Popen(cmd.strip().split(' '), stdout=PIPE, stderr=PIPE)
     out, err = p.communicate()
     england_text = out.decode('utf-8')
-    print(my_wiki.generateBasicInfo(england_text))
+    print(my_wiki.generate_basic_info(england_text))

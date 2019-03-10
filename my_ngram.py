@@ -1,4 +1,4 @@
-def generateNGram(target, n, mode):
+def generate_ngram(target, n, mode):
     output = []
     if mode == 'word':
         words = target.split(' ')

@@ -1,6 +1,6 @@
 import my_mecab
 if __name__ == '__main__':
-    mapping = my_mecab.generateMapping('neko.txt.mecab')
+    mapping = my_mecab.generate_mapping('neko.txt.mecab')
     output = []
     flag = 0
     tmp = ''

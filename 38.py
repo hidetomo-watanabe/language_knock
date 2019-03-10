@@ -3,7 +3,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('Agg')
 if __name__ == '__main__':
-    mapping = my_mecab.generateMapping('neko.txt.mecab')
+    mapping = my_mecab.generate_mapping('neko.txt.mecab')
     words = []
     for sentence in mapping:
         for morpheme in sentence:
