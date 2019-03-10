@@ -4,8 +4,8 @@ import MeCab
 def generate_mecab(path):
     with open(path, 'r') as f:
         text = f.read()
-    mecab = MeCab.Tagger()
-    output = mecab.parse(text)
+    m = MeCab.Tagger()
+    output = m.parse(text)
     return output
 
 
