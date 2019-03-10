@@ -1,12 +1,11 @@
 import MeCab
 
 
-def generate_mecab(target):
-    f = open(target)
-    target = f.read()
-    f.close()
+def generate_mecab(path):
+    with open(path, 'r') as f:
+        text = f.read()
     mecab = MeCab.Tagger()
-    output = mecab.parse(target)
+    output = mecab.parse(text)
     return output
 
 
