@@ -38,6 +38,5 @@ def generate_mapping(target):
 
 if __name__ == '__main__':
     output = generate_mecab('neko.txt')
-    f = open('neko.txt.mecab', 'w')
-    f.write(output)
-    f.close()
+    with open('neko.txt.mecab', 'w') as f:
+        f.write(output)
