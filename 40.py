@@ -3,7 +3,7 @@ if __name__ == '__main__':
     with open('neko.txt.cabocha', 'r') as f:
         sentence_num = 0
         for line in f.readlines():
-            # 文節区切り
+            # 文節区切りの行
             if ' ' in line:
                 continue
 
@@ -18,9 +18,11 @@ if __name__ == '__main__':
             # 3文目
             if sentence_num == 2:
                 morph_obj.display()
+            # 4文目
             if sentence_num > 2:
                 break
 
-            # 文章数追加
+            # 文末
             if surface == '。':
+                # 文章数追加
                 sentence_num += 1
