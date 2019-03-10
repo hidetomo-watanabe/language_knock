@@ -14,5 +14,6 @@ def generateBasicInfo(target):
         output[tmp[0].strip()] = '='.join(tmp[1:]).strip()
     return output
 
+
 if __name__ == '__main__':
     pass

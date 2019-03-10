@@ -1,7 +1,7 @@
 import my_mecab
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 if __name__ == '__main__':
     mapping = my_mecab.generateMapping('neko.txt.mecab')
     words = []

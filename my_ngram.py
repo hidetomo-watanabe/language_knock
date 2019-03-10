@@ -1,6 +1,3 @@
-import sys
-
-
 def generateNGram(target, n, mode):
     output = []
     if mode == 'word':
@@ -12,6 +9,7 @@ def generateNGram(target, n, mode):
         for i in range(len(chars)):
             output.append(''.join(chars[i:i+n]))
     return list(set(output))
+
 
 if __name__ == '__main__':
     pass

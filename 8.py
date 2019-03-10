@@ -24,6 +24,7 @@ def decipher(target):
             tmp = ''
     return output
 
+
 if __name__ == '__main__':
     target = sys.argv[1]
     print(cipher(target))

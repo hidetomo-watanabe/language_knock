@@ -36,6 +36,7 @@ def generateMapping(target):
             sentence = []
     return output
 
+
 if __name__ == '__main__':
     output = generateMecab('neko.txt')
     f = open('neko.txt.mecab', 'w')
