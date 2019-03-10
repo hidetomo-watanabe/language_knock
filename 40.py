@@ -8,12 +8,15 @@ if __name__ == '__main__':
                 continue
 
             # 文節内容取得
-            surface, morph_val = line.split('\t')
-            pos, pos1, _, _, _, _, base, _, _ = morph_val.split(',')
+            surface, tmp1 = line.split('\t')
+            tmp2 = tmp1.split(',')
+            pos = tmp2[0]
+            pos1 = tmp2[1]
+            base = tmp2[-3]
+            morph_obj = my_cabocha.Morph(surface, base, pos, pos1)
 
             # 3文目
             if sentence_num == 2:
-                morph_obj = my_cabocha.Morph(surface, base, pos, pos1)
                 morph_obj.display()
             if sentence_num > 2:
                 break
