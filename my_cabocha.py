@@ -30,10 +30,16 @@ class Chunk(object):
         self.dst = dst
         self.srcs = srcs
 
-    def display(self):
+    def get_text(self, no_symbol=False):
         text = ''
         for morph in self.morphs:
+            if no_symbol and morph.pos == '記号':
+                continue
             text += morph.surface
+        return text
+
+    def display(self):
+        text = self.get_text()
         print(
             f'text: {text}\t' +
             f'dst: {self.dst}\t' +
