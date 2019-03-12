@@ -72,6 +72,18 @@ class Chunk(object):
         self.dst = dst
         self.srcs = srcs
 
+    def has_noun(self):
+        for morph in self.morphs:
+            if morph.pos == '名詞':
+                return True
+        return False
+
+    def has_verb(self):
+        for morph in self.morphs:
+            if morph.pos == '動詞':
+                return True
+        return False
+
     def get_text(self, no_symbol=False):
         text = ''
         for morph in self.morphs:
