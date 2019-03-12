@@ -9,6 +9,48 @@ def generate_cabocha(path):
     return output
 
 
+def generate_chunks(path):
+    with open(path, 'r') as f:
+        morphs = []
+        chunks = []
+        chunk_obj = None
+        srcs_dict = {}
+        for line in f.readlines():
+            # 文節内容の行
+            if '\t' in line:
+                # 文節内容取得
+                surface, tmp1 = line.split('\t')
+                tmp2 = tmp1.split(',')
+                pos = tmp2[0]
+                pos1 = tmp2[1]
+                base = tmp2[-3]
+                morph_obj = Morph(surface, base, pos, pos1)
+                morphs.append(morph_obj)
+            # 文節区切りの行
+            elif ' ' in line:
+                # 前のchunkにmorphsを代入
+                if chunk_obj:
+                    chunk_obj.morphs = morphs
+                    chunks.append(chunk_obj)
+
+                # 次のchunk初期化
+                morphs = []
+                tmp = line.split(' ')
+                index = int(tmp[1])
+                dst = int(tmp[2].replace('D', ''))
+                if index in srcs_dict.keys():
+                    srcs = srcs_dict[index]
+                else:
+                    srcs = []
+                chunk_obj = Chunk([], dst, srcs)
+                # srcs保持
+                if dst in srcs_dict.keys():
+                    srcs_dict[dst].append(index)
+                else:
+                    srcs_dict[dst] = [index]
+    return chunks
+
+
 class Morph(object):
     def __init__(self, surface, base, pos, pos1):
         self.surface = surface
