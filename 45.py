@@ -10,12 +10,15 @@ if __name__ == '__main__':
             if morph.pos == '動詞':
                 predicate = morph.base
                 break
+        # 格
+        cases = []
         for src in chunk_obj.srcs:
-            # 格
-            cases = []
             for morph in chunks[src].morphs:
                 if morph.pos == '助詞':
                     cases.append(morph.base)
-            if len(cases) == 0:
-                continue
-            print(f'{predicate}\t{" ".join(cases)}')
+        if len(cases) == 0:
+            continue
+
+        if len(cases) == 0:
+            continue
+        print(f'{predicate}\t{" ".join(cases)}')
