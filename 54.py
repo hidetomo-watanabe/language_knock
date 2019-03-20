@@ -10,4 +10,7 @@ if __name__ == '__main__':
         result = json.loads(parser.parse(line))
         for sentence_data in result['sentences']:
             for word_data in sentence_data['words']:
-                print(word_data[0])
+                word = word_data[0]
+                lemma = word_data[1]['Lemma']
+                pos = word_data[1]['PartOfSpeech']
+                print(f'{word}\t{lemma}\t{pos}')
